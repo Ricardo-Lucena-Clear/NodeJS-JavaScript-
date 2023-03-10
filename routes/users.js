@@ -46,7 +46,19 @@
 
                     })
                 })
+                routeID.put((req, res) =>{
+                    db.update({_id:req.params.id}, req.body, err =>{
+                        if (err){
+                            app.utils.error.send(err, req, res);                            
+                        }else {
+                            res.status(200).json(Object.assign(req.params, req.body));
+                        }
+
+                    })
+                })
                 }
+               
+                
         
 
      
